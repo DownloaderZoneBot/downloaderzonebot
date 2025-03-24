@@ -12,14 +12,12 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-    await message.reply("🎬 أرسل رابط فيديو من YouTube أو TikTok وسأحاول تحميله لك!")
-
+    await message.reply("🎬 أرسل رابط فيديو من YouTube أو TikTok وسأقوم بتحميله لك!")
 
 @dp.message_handler(lambda message: "http" in message.text)
 async def handle_link(message: types.Message):
     url = message.text.strip()
-    await message.reply("⏳ جارٍ تحميل الفيديو...")
-
+    await message.reply("⏳ جاري تحميل الفيديو، يرجى الانتظار...")
     try:
         temp_dir = tempfile.gettempdir()
         ydl_opts = {
@@ -28,13 +26,15 @@ async def handle_link(message: types.Message):
             'quiet': True,
             'noplaylist': True,
             'geo_bypass': True,
+            'retries': 3,
+            'fragment_retries': 3,
+            'socket_timeout': 10,
+            'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
         }
-
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             filename = ydl.prepare_filename(info)
             await message.reply_video(types.InputFile(filename), caption="✅ تم التحميل بنجاح!")
-
     except yt_dlp.utils.DownloadError as e:
         await message.reply("❌ هذا الفيديو غير متاح أو مقيّد ولا يمكن تحميله.")
     except Exception as e:
