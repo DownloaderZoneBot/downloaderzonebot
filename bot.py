@@ -26,17 +26,19 @@ async def handle_link(message: types.Message):
             'quiet': True,
             'noplaylist': True,
             'geo_bypass': True,
-            'retries': 3,
-            'fragment_retries': 3,
+            'retries': 5,
+            'fragment_retries': 5,
             'socket_timeout': 10,
-            'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+            'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+            'age_limit': 0,
+            'force_generic_extractor': True
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             filename = ydl.prepare_filename(info)
             await message.reply_video(types.InputFile(filename), caption="✅ تم التحميل بنجاح!")
     except yt_dlp.utils.DownloadError as e:
-        await message.reply("❌ هذا الفيديو غير متاح أو مقيّد ولا يمكن تحميله.")
+        await message.reply("❌ هذا الفيديو غير متاح أو مقيّد. قد يكون محجوباً جغرافياً أو يتطلب تسجيل دخول. يرجى تجربة فيديو آخر.")
     except Exception as e:
         await message.reply(f"❌ حدث خطأ غير متوقع:\n{str(e)}")
 
