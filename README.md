@@ -1,3 +1,3 @@
-# DownloaderZoneBot with yt_dlp only
+# DownloaderZoneBot (Safe Version)
 
-بوت تليغرام لتحميل فيديوهات من YouTube و TikTok باستخدام yt_dlp فقط.
+بوت تليغرام لتحميل فيديوهات YouTube بأمان بدون استخدام ملفات Cookies.
