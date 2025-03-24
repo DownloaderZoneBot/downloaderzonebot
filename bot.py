@@ -26,7 +26,7 @@ async def send_welcome(message: types.Message):
 async def handle_link(message: types.Message):
     url = message.text.strip()
     await message.reply("⚡ جاري تنشيط بروتوكولات التجاوز...")
-    
+
     try:
         temp_dir = tempfile.gettempdir()
         ydl_opts = {
@@ -60,20 +60,16 @@ async def handle_link(message: types.Message):
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
-            
             if not info:
                 return await message.reply("🔒 الفيديو محمي بنظام حماية متقدم - جرب استخدام رابط مختصر")
-                
             filename = ydl.prepare_filename(info)
-            
             await message.reply_video(
                 types.InputFile(filename),
                 caption="✅ تم التحميل بنجاح باستخدام الذكاء البنائي!",
                 supports_streaming=True
             )
-            
             os.remove(filename)
-            
+
     except yt_dlp.utils.DownloadError as e:
         error_msg = str(e).lower()
         if 'age restricted' in error_msg:

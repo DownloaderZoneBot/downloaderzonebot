@@ -1,3 +1,3 @@
-# DownloaderZoneBot (Safe Version)
+# DownloaderZoneBot - Advanced Edition
 
-بوت تليغرام لتحميل فيديوهات YouTube بأمان بدون استخدام ملفات Cookies.
+بوت تليغرام متقدم يستخدم yt_dlp لتجاوز القيود وتحميل فيديوهات YouTube الذكية.
