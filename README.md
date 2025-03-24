@@ -1,3 +1,3 @@
-# DownloaderZoneBot
+# DownloaderZoneBot v2
 
-بوت بسيط لتجربة الاتصال بتليغرام باستخدام aiogram.
+بوت تليغرام لتحميل فيديوهات YouTube و TikTok مباشرة.
