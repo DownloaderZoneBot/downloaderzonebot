@@ -1,3 +1,3 @@
-# DownloaderZoneBot - Advanced Edition
+# DownloaderZoneBot IG+TikTok
 
-بوت تليغرام متقدم يستخدم yt_dlp لتجاوز القيود وتحميل فيديوهات YouTube الذكية.
+يدعم تحميل فيديوهات Instagram و TikTok باستخدام yt_dlp.
