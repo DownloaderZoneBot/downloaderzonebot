@@ -1,3 +1,3 @@
-# DownloaderZoneBot IG+TikTok
+# DownloaderZoneBot IG+TikTok (Fixed)
 
-يدعم تحميل فيديوهات Instagram و TikTok باستخدام yt_dlp.
+بوت لتحميل فيديوهات Instagram و TikTok باستخدام yt_dlp (نسخة مصححة).

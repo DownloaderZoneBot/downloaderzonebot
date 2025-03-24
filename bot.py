@@ -45,8 +45,7 @@ async def handle_download(message: types.Message):
             os.remove(filename)
 
     except Exception as e:
-        await message.reply(f"❌ تعذر التحميل:
-{str(e)[:400]}")
+        await message.reply(f"❌ تعذر التحميل:\n{str(e)[:400]}")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
