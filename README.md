@@ -1,3 +1,3 @@
-# DownloaderZoneBot v2
+# DownloaderZoneBot with yt_dlp only
 
-بوت تليغرام لتحميل فيديوهات YouTube و TikTok مباشرة.
+بوت تليغرام لتحميل فيديوهات من YouTube و TikTok باستخدام yt_dlp فقط.
